@@ -20,5 +20,8 @@ namespace GymT110Asp.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet<Featured> Featureds { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
+        public DbSet<WeekDay> WeekDays { get; set; }
     }
 }

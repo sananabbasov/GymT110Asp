@@ -2,6 +2,7 @@
 using GymT110Asp.Models;
 using GymT110Asp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -26,8 +27,12 @@ namespace GymT110Asp.Controllers
         {
             HomeVM vm = new HomeVM()
             {
-                Sliders=_context.Sliders.ToList(),
-                Products=_context.Products.ToList()
+                Sliders = _context.Sliders.ToList(),
+                Products = _context.Products.ToList(),
+                AboutLeft = _context.AboutLefts.FirstOrDefault(),
+                AboutRights = _context.AboutRights.ToList(),
+                Featureds = _context.Featureds.ToList(),
+                Schedules = _context.Schedules.Include(x=>x.WeekDays).ToList()
             };
 
             return View(vm);
